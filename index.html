@@ -9,26 +9,77 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+
+    .switch-container {
+        position: relative;
+        width: 80px;
+        height: 40px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .slider {
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        background: #333;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: 0.3s ease-in-out;
+    }
+
+    .active {
+        background: var(--main-color, #4CAF50);
+    }
+
+    .active .slider {
+        left: 42px;
+        background: white;
+    }
+</style>
 </head>
-
 <body>
-    
-    <!--HEADER-->
-    <header class="header">
-        <a href="#home" class="logo">Ying<span>Was</span>Taken</a>
 
-        <i class='bx bx-menu' id="menu-icon"></i>
+<div class="switch-container" id="toggleSwitch">
+    <div class="slider"></div>
+</div>
 
-        <!--NAV-->
-        <nav class="navbar">
-            <a href="#home" class="active">Principal</a>
-            <a href="#about">Sobre mi</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Proyectos</a>
-            <a href="#contact">Contacto</a>
-        </nav>
-    </header>
+<script>
+    const switchContainer = document.getElementById("toggleSwitch");
+
+    // Estado inicial (izquierda = index.html)
+    let isToggled = false;
+
+    switchContainer.addEventListener("click", () => {
+        isToggled = !isToggled; // Alternar estado
+
+        if (isToggled) {
+            switchContainer.classList.add("active");
+            setTimeout(() => {
+                window.location.href = "indexAlternativo.html";
+            }, 300); // Pequeño delay para una transición fluida
+        } else {
+            switchContainer.classList.remove("active");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 300);
+        }
+    });
+</script>
 
 </body>
+</html>
 
 </html>

@@ -72,7 +72,7 @@ body {
 }
 
 section {
-    min-height: 100wh;
+    min-height: 100vh;
     padding: 10rem 12% 10rem;
 }
 .home{
@@ -114,11 +114,13 @@ span{
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    filter: brightness(0.8) saturate(0.9);
 }
 .home-img img:hover{
     box-shadow: 0 0 25px var(--main-color),
                 0 0 50px var(--main-color),
                 0 0 100px var(--main-color); 
+    filter: brightness(1.2) saturate(1);
 }
 .home-content p{
     color: var(--text-color);
@@ -180,81 +182,95 @@ span{
     background-color: var(--main-color);
     color: black;
 }
-.text-animation{
+.text-animation {
     font-size: 34px;
     font-weight: 600;
     min-width: 280px;
 }
-.text-animation span{
-    position: relative;  
+
+.text-animation span {
+    position: relative;
 }
-.text-animation span::before{
+
+.text-animation span::before {
     content: "Programador Junior";
     color: var(--main-color);
     animation: words 20s infinite;
 }
-.text-animation span::after{
+
+.text-animation span::after {
     content: "";
     background-color: var(--bg-color);
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
-    border-left: 3px solid var(--bg-color);
+    border-left: 3px solid var(--main-color);
     right: -8px;
-    animation: cursor 0.6s infinite, typing 20s steps
-    (14) infinite;
+    animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
-@keyframes cursor{
-    to{
-        border-left: 2px solid var(--main-color);
+
+@keyframes cursor {
+    50% {
+        border-left: 2px solid transparent;
     }
 }
+
 @keyframes words {
-    0%,
-    20%{
-        content: "Programador Front-end";
+    0%, 20% {
+        content: "Programador Junior";
     }
-    21%,
-    40%{
-        content: "Programador Back-end";
+    21%, 40% {
+        content: "Desarrollador Front-End";
     }
-    41%,
-    60%{
-        content: "Desarrollador de videojuegos";
+    41%, 60% {
+        content: "Futuro desarrollador de videojuegos";
     }
-    61%,
-    80%{
-        content: "Programador Back-end";
+    61%, 80% {
+        content: "Friki en toda regla";
     }
-    81%,
-    100%{
-        content: "Programador Front-end";
+    81%, 100% {
+        content: "Programador Junior";
     }
 }
- @keyframes typing {
-    10%,
-    15%,
-    30%,
-    35%,
-    50%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95%{
+
+@keyframes typing {
+    0%, 10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
         width: 0;
     }
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85%{
-        width: calc(100% +8px);
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%, 100% {
+        width: calc(100% + 8px);
     }
+}
+
+.switch-container {
+    position: relative;
+    width: 80px;
+    height: 40px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.slider {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: #333;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s ease-in-out;
+}
+
+.active {
+    background: var(--main-color);
+}
+
+.active .slider {
+    left: 42px;
+    background: white;
 }
 
 /* About Me*/
