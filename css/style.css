@@ -12,7 +12,8 @@
     --bg-color: #070707;
     --second-bg-color: #181818;
     --text-color: #ffffff;
-    --main-color: #f51735;
+    --main-color: #3FFA5EFF;
+    --anti-color: #f51735;
 }
 
 html {
@@ -43,6 +44,10 @@ body {
     font-weight: 800;
     cursor: pointer;
     transition: 0.3s ease;
+    text-align: center;
+    max-width: 40rem;
+    min-width: 40rem;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 .logo:hover {
     transform: scale(1.1);
@@ -51,6 +56,8 @@ body {
     text-shadow: 0 0 25px var(--main-color);
     color: var(--main-color);
 }
+
+
 .navbar a{
     font-size: 1.8rem;
     color: var(--text-color);
@@ -71,10 +78,13 @@ body {
     display: none;
 }
 
+/* landing */
+
 section {
     min-height: 100vh;
     padding: 10rem 12% 10rem;
 }
+
 .home{
     display: flex;
     align-items: center;
@@ -88,10 +98,13 @@ section {
     text-align: left;
     justify-content: center;
     margin-top: 3rem;
+    order: 1;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
 span{
     color: var(--main-color)
 }
+
 .home-content h3 {
     margin-bottom: 2rem;
     margin-top: 1rem;
@@ -105,7 +118,20 @@ span{
 }
 .home-img {
     border-radius: 50%;
+    order: 2;
+    transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
 .home-img img {
     position: relative;
     top: 3rem;
@@ -128,6 +154,8 @@ span{
     line-height: 1.8;
     max-width: 1000px;
 }
+
+
 .social-icons a{
     display: inline-flex;
     justify-content: center;
@@ -193,7 +221,7 @@ span{
 }
 
 .text-animation span::before {
-    content: "Programador Junior";
+    content: "";
     color: var(--main-color);
     animation: words 20s infinite;
 }
@@ -216,25 +244,29 @@ span{
 }
 
 @keyframes words {
-    0%, 20% {
+    0%, 
+    20% {
         content: "Programador Junior";
     }
-    21%, 40% {
+    21%,
+    40% {
         content: "Desarrollador Front-End";
     }
-    41%, 60% {
-        content: "Futuro desarrollador de videojuegos";
+    41%,
+    60% {
+        content: "Estudiante";
     }
     61%, 80% {
-        content: "Friki en toda regla";
+        content: "¿Robot? boop bip";
     }
-    81%, 100% {
-        content: "Programador Junior";
+    81%,
+    100% {
+        content: "Friki en toda regla";
     }
 }
 
 @keyframes typing {
-    0%, 10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
         width: 0;
     }
     5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%, 100% {
@@ -242,36 +274,47 @@ span{
     }
 }
 
-.switch-container {
-    position: relative;
-    width: 80px;
-    height: 40px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: background 0.3s ease-in-out;
+ /* Slider de Portfolios*/
+
+ .switch-container-dad{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+ }
+
+#toggleSwitch {
+
+    position: fixed; 
+    top: 35px;
+    right: 70px;
+    width: 80px; 
+    height: 40px; 
+    background: var(--main-color); 
+    border-radius: 20px; 
+    cursor: pointer;              
+    transition: background 0.3s ease-in-out; 
 }
 
 .slider {
     position: absolute;
     width: 36px;
     height: 36px;
-    background: #333;
+    background: white; 
     border-radius: 50%;
     top: 2px;
     left: 2px;
-    transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
 }
 
 .active {
-    background: var(--main-color);
+    background: var(--main-color); 
 }
 
 .active .slider {
-    left: 42px;
-    background: white;
+    transform: translateX(40px); 
+    background: white; 
 }
+
 
 /* About Me*/
 
