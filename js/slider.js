@@ -84,11 +84,15 @@ window.addEventListener("load", function () {
             if (!isToggled) {
                 mainTitle.textContent = "Hola, soy Pablo Casamian";
                 name.textContent = "Pablo Casamian";
-                description.textContent = "Me gusta escalar y programar a partes iguales, resolver cosas es la razón por la que me levanto cada día.";
+                description.textContent = "No tenía claro que esto me fuese a gustar, ahora tengo claro que lo necesito para ser feliz. "+
+                "Me gusta escalar y programar a partes iguales, resolver cosas es la razón por la que me levanto cada día.";
             } else {
                 mainTitle.textContent = "Hola, soy YingWasTaken";
                 name.textContent = "YingWasTaken";
-                description.textContent = "Desde pequeño he utilizado este pseudónimo en la red, siento que es una parte fundamental de mi, de mi esencia, aquí guardo la parte más alocada de mi vida.";
+                description.textContent = "Soy una persona bastante curiosa, y desde pequeño he utilizado este pseudónimo en la red, "+
+                 "siento que es una parte fundamental de mi, de mi esencia, aquí guardo la parte más alocada de mi vida.\n"+
+                 " Y como no podía ser de otra manera, la mantengo oculta en una cuenta de github separada, para no mezclar mis proyectos "+
+                 '"más académicos y profesionales" con mis protectos personales.';
             }
 
                 mainTitle.classList.remove("fade-out");
